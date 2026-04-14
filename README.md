@@ -20,17 +20,6 @@ The objective is to learn reconnaissance, network scanning, vulnerability assess
 - Burp Suite
 - Netcat
 
-# Daily Progress
-
-| Day | Topic |
-|-----|------|
-| Day 13 | Reconnaissance |
-| Day 14 | Nmap Scanning |
-| Day 15 | Service & OS Detection |
-| Day 16 | Vulnerability Scanning |
-| Day 17 | Packet Analysis (Wireshark) |
-| Day 18 | Firewall Basics |
-
 # Key Activities
 - Information gathering using Whois & Nslookup  
 - Network scanning and port analysis  
@@ -51,4 +40,6 @@ This lab helped me build a strong foundation in:
 - Network reconnaissance  
 - Scanning and enumeration  
 - Traffic analysis  
-- Cybersecurity tools usage  
+- Cybersecurity tools usage
+
+ Daily Progress
