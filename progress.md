@@ -1,4 +1,4 @@
-# Day 13 – Reconnaissance (Information Gathering Phase)
+# Day 13 - Reconnaissance (Information Gathering Phase)
 
 -- Started Task 2: Network Security & Scanning  
 
@@ -57,3 +57,105 @@ Active Recon Techniques
 -- Monitoring unusual probing activity is important  
 
 -- All activities performed in controlled and ethical lab setup  
+
+
+# Day 14 - Network Scanning using Nmap
+
+-- Performed network scanning using Nmap to identify live hosts, open ports, and running services  
+
+Tool Used
+
+Basic Scan
+
+-- Scanned target system (Metasploitable2):
+
+   nmap <target-ip>
+
+-- Purpose:
+   -- Identify open ports  
+   -- Detect active services  
+
+TCP SYN Scan (Stealth Scan)
+
+-- Command:
+
+   nmap -sS <target-ip>
+
+-- Explanation:
+   -- Half-open scan (stealthy)  
+   -- Faster and less detectable  
+
+TCP & UDP Scan
+
+-- Command:
+
+   nmap -sS -sU <target-ip>
+
+-- Purpose:
+   -- Scan both TCP and UDP ports  
+
+Service Version Detection
+
+-- Command:
+
+   nmap -sV <target-ip>
+
+-- Output shows:
+   -- Service name  
+   -- Version information  
+
+OS Detection
+
+-- Command:
+
+   nmap -O <target-ip>
+
+-- Purpose:
+   -- Identify operating system of target  
+
+Aggressive Scan (Full Info)
+
+-- Command:
+
+   nmap -A <target-ip>
+
+-- Includes:
+   -- OS detection  
+   -- Version detection  
+   -- Script scanning  
+   -- Traceroute  
+
+Port Range Scan
+
+-- Command:
+
+   nmap -p 1-1000 <target-ip>
+
+-- Purpose:
+   -- Scan specific port range  
+
+Save Scan Results
+
+-- Command:
+
+   nmap -oN scan.txt <target-ip>
+
+-- Output saved for reporting  
+
+Key Concepts Learned
+
+-- Open Port:
+   -- Entry point for communication  
+
+-- Closed Port:
+   -- Not accepting connections  
+
+-- Filtered Port:
+   -- Blocked by firewall  
+
+Security Insights
+
+-- Open ports can expose services to attackers  
+-- Outdated services may contain vulnerabilities  
+-- Regular scanning helps detect security risks  
+
