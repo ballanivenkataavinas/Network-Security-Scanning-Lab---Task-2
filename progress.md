@@ -159,3 +159,93 @@ Security Insights
 -- Outdated services may contain vulnerabilities  
 -- Regular scanning helps detect security risks  
 
+# Day 15 - Service Enumeration
+
+-- Performed service enumeration to gather detailed information about running services on the target system  
+
+Tools Used
+
+What is Service Enumeration?
+
+-- Process of extracting detailed information about services running on open ports  
+-- Helps identify:
+   -- Service versions  
+   -- Misconfigurations  
+   -- Potential vulnerabilities  
+
+Step 1 – Identify Services (Using Nmap)
+
+-- Command:
+
+   nmap -sV <target-ip>
+
+-- Output Includes:
+   -- Port number  
+   -- Service name  
+   -- Version details  
+
+Step 2 – Banner Grabbing (Manual Enumeration)
+
+-- Using Netcat:
+
+   nc <target-ip> <port>
+
+-- Example:
+
+   nc <target-ip> 21
+
+-- Purpose:
+   -- Retrieve service banner  
+   -- Identify software & version  
+
+Step 3 – Web Server Enumeration
+
+-- Using Nikto:
+
+   nikto -h http://<target-ip>
+
+-- Finds:
+   -- Outdated server software  
+   -- Security misconfigurations  
+   -- Known vulnerabilities  
+
+Step 4 – Enumerate Specific Ports
+
+-- FTP (Port 21):
+
+   nmap -p 21 --script ftp-anon <target-ip>
+
+-- SSH (Port 22):
+
+   nmap -p 22 --script ssh-hostkey <target-ip>
+
+-- HTTP (Port 80):
+
+   nmap -p 80 --script http-title <target-ip>
+
+Step 5 – Detailed Enumeration (Nmap Scripts)
+
+-- Command:
+
+   nmap --script vuln <target-ip>
+
+-- Purpose:
+   -- Detect known vulnerabilities automatically  
+
+Key Concepts Learned
+
+-- Banner Grabbing:
+   -- Extracts service information from open ports  
+
+-- Enumeration:
+   -- Deep inspection of services  
+
+-- Service Version:
+   -- Helps identify exploitable vulnerabilities  
+
+Security Insights
+
+-- Outdated services are major security risks  
+-- Misconfigured services can expose sensitive data  
+-- Enumeration is crucial before exploitation  
+ 
