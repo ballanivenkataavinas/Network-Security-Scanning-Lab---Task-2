@@ -248,4 +248,72 @@ Security Insights
 -- Outdated services are major security risks  
 -- Misconfigured services can expose sensitive data  
 -- Enumeration is crucial before exploitation  
- 
+
+# Day 16 - Vulnerability Scanning
+
+-- Performed vulnerability scanning to identify security weaknesses in the target system  
+
+Tools Used
+
+What is Vulnerability Scanning?
+
+-- Process of identifying known security weaknesses in systems and services  
+-- Helps detect:
+   -- Outdated software  
+   -- Misconfigurations  
+   -- Known CVEs  
+
+Step 1 – Nmap Vulnerability Scan
+
+-- Command:
+
+   nmap --script vuln <target-ip>
+
+-- Purpose:
+   -- Runs vulnerability detection scripts  
+   -- Identifies known issues automatically  
+
+Step 2 – Targeted Vulnerability Scripts
+
+-- Example Commands:
+
+   nmap --script ftp-vuln* <target-ip>  
+   nmap --script http-vuln* <target-ip>  
+
+-- Focus:
+   -- Service-specific vulnerabilities  
+
+Step 3 – Web Vulnerability Scan (Nikto)
+
+-- Command:
+
+   nikto -h http://<target-ip>
+
+-- Detects:
+   -- Dangerous files  
+   -- Server misconfigurations  
+   -- Outdated web server versions  
+
+Step 4 – Analyze Scan Results
+
+-- Look for:
+   -- Vulnerable service versions  
+   -- Exposed endpoints  
+   -- Weak configurations  
+
+Key Concepts Learned
+
+-- CVE (Common Vulnerabilities and Exposures):
+   -- Publicly disclosed vulnerabilities  
+
+-- False Positives:
+   -- Not all detected issues are exploitable  
+
+-- Risk Identification:
+   -- Prioritizing vulnerabilities based on severity  
+
+Security Insights
+
+-- Regular vulnerability scanning is critical  
+-- Early detection prevents exploitation  
+-- Systems must be patched and updated  
