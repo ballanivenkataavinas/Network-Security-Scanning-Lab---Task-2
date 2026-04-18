@@ -317,3 +317,79 @@ Security Insights
 -- Regular vulnerability scanning is critical  
 -- Early detection prevents exploitation  
 -- Systems must be patched and updated  
+
+# Day 17 - Packet Analysis using Wireshark
+
+-- Performed network packet analysis to inspect and understand real-time traffic  
+
+Tool Used
+
+What is Packet Analysis?
+
+-- Process of capturing and inspecting network traffic  
+-- Helps understand:
+   -- Data flow  
+   -- Protocol behavior  
+   -- Suspicious activity  
+
+Step 1 – Start Packet Capture
+
+-- Open Wireshark  
+-- Select active network interface (e.g., eth0 / wlan0)  
+-- Start capturing packets  
+
+Step 2 – Apply Filters
+
+-- HTTP traffic:
+
+   http
+
+-- DNS traffic:
+
+   dns
+
+-- TCP traffic:
+
+   tcp
+
+-- Purpose:
+   -- Focus on specific types of traffic  
+
+Step 3 – Analyze Packets
+
+-- Observed:
+   -- Source IP & Destination IP  
+   -- Protocol used (TCP, UDP, HTTP, DNS)  
+   -- Packet length & data  
+
+Step 4 – Follow TCP Stream
+
+-- Right-click packet → Follow → TCP Stream  
+
+-- Purpose:
+   -- View complete communication between two systems  
+
+Step 5 – Identify Suspicious Activity
+
+-- Look for:
+   -- Unusual traffic patterns  
+   -- Unknown IP addresses  
+   -- Repeated failed requests  
+
+Key Concepts Learned
+
+-- Packet:
+   -- Small unit of data transmitted over network  
+
+-- Protocol:
+   -- Rules for communication (TCP, UDP, HTTP)  
+
+-- Sniffing:
+   -- Capturing network traffic  
+
+Security Insights
+
+-- Unencrypted traffic can expose sensitive data  
+-- Packet analysis helps detect attacks and anomalies  
+-- Monitoring network traffic improves security  
+  
