@@ -392,4 +392,96 @@ Security Insights
 -- Unencrypted traffic can expose sensitive data  
 -- Packet analysis helps detect attacks and anomalies  
 -- Monitoring network traffic improves security  
-  
+
+# Day 18 - DNS & HTTP Traffic Analysis
+
+-- Performed detailed analysis of DNS and HTTP traffic to understand network communication and detect sensitive data exposure  
+
+Tool Used
+
+What is DNS & HTTP Analysis?
+
+-- DNS:
+   -- Resolves domain names to IP addresses  
+
+-- HTTP:
+   -- Protocol used for web communication  
+
+-- Analysis helps:
+   -- Understand user activity  
+   -- Detect data leaks  
+   -- Identify insecure communication  
+
+Step 1 – Start Packet Capture
+
+-- Open Wireshark  
+-- Select active interface  
+-- Start capturing packets  
+
+Step 2 – Analyze DNS Traffic
+
+-- Apply filter:
+
+   dns
+
+-- Observe:
+   -- Domain names requested  
+   -- Corresponding IP addresses  
+
+-- Example Insight:
+   -- User accessing websites can be tracked via DNS queries  
+
+Step 3 – Analyze HTTP Traffic
+
+-- Apply filter:
+
+   http
+
+-- Observe:
+   -- GET / POST requests  
+   -- URLs accessed  
+   -- Server responses  
+
+Step 4 – Inspect HTTP Requests
+
+-- Click any HTTP packet  
+
+-- Check:
+   -- Request method (GET / POST)  
+   -- Host (website name)  
+   -- User-Agent  
+
+Step 5 – Follow TCP Stream
+
+-- Right click → Follow → TCP Stream  
+
+-- Purpose:
+   -- View full communication  
+   -- Detect sensitive data (credentials, inputs)  
+
+Step 6 – Generate Traffic
+
+-- In terminal:
+
+   curl http://<target-ip>
+
+   ping google.com
+
+-- Helps capture DNS + HTTP packets  
+
+Key Concepts Learned
+
+-- DNS Resolution:
+   -- Converts domain to IP  
+
+-- HTTP Request/Response:
+   -- Client-server communication  
+
+-- Packet Inspection:
+   -- Analyzing actual transmitted data  
+
+Security Insights
+
+-- DNS queries reveal browsing behavior  
+-- HTTP traffic is unencrypted → data visible  
+-- Sensitive info can be captured if not secured  
