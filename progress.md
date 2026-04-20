@@ -485,3 +485,76 @@ Security Insights
 -- DNS queries reveal browsing behavior  
 -- HTTP traffic is unencrypted → data visible  
 -- Sensitive info can be captured if not secured  
+
+# Day 19 - FTP Credential Sniffing
+
+-- Performed credential sniffing by capturing FTP traffic and analyzing unencrypted login data  
+
+Tool Used
+
+What is Credential Sniffing?
+
+-- Process of capturing network traffic to extract sensitive information such as:
+   -- Usernames  
+   -- Passwords  
+
+-- Works mainly on:
+   -- Unencrypted protocols (FTP, HTTP, Telnet)  
+
+Step 1 – Start Packet Capture
+
+-- Open Wireshark  
+-- Select active network interface  
+-- Start capturing packets  
+
+Step 2 – Generate FTP Traffic
+
+-- In terminal:
+
+   ftp <target-ip>
+
+-- Login using:
+
+   username: msfadmin  
+   password: msfadmin  
+
+Step 3 – Apply FTP Filter
+
+-- In Wireshark filter:
+
+   ftp
+
+Step 4 – Capture Credentials
+
+-- Look for packets containing:
+   -- USER  
+   -- PASS  
+
+-- Example:
+   -- USER msfadmin  
+   -- PASS msfadmin  
+
+Step 5 – Follow TCP Stream
+
+-- Right click packet → Follow → TCP Stream  
+
+-- Purpose:
+   -- View complete FTP session  
+   -- Clearly see credentials  
+
+Key Concepts Learned
+
+-- Plaintext Protocols:
+   -- Send data without encryption  
+
+-- Packet Sniffing:
+   -- Capturing network traffic  
+
+-- Credential Exposure:
+   -- Sensitive data visible in packets  
+
+Security Insights
+
+-- FTP is insecure (no encryption)  
+-- Credentials can be intercepted easily  
+-- Use secure protocols like SFTP/HTTPS  
