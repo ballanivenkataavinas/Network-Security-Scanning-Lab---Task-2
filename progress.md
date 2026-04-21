@@ -558,3 +558,93 @@ Security Insights
 -- FTP is insecure (no encryption)  
 -- Credentials can be intercepted easily  
 -- Use secure protocols like SFTP/HTTPS  
+
+# Day 20 & 21 - SYN Flood Attack Simulation & Firewall Defense
+
+-- Simulated a SYN Flood attack and implemented firewall rules to mitigate the attack in a controlled lab environment  
+
+Tools Used
+
+-- iptables (Linux firewall)  
+
+Part 1 – SYN Flood Attack
+
+What is SYN Flood?
+
+-- A Denial-of-Service (DoS) attack  
+-- Exploits TCP 3-way handshake  
+
+-- Process:
+   -- Attacker sends multiple SYN requests  
+   -- Target replies with SYN-ACK  
+   -- No ACK → connection remains incomplete  
+
+Launch Attack
+
+-- Command:
+
+   sudo hping3 -S --flood -p 80 <target-ip>
+
+-- Explanation:
+   -- -S → SYN flag  
+   -- --flood → continuous packet sending  
+   -- -p 80 → target port  
+
+---
+
+Analyze in Wireshark
+
+-- Apply filter:
+
+   tcp.flags.syn == 1
+
+-- Observation:
+   -- High number of SYN packets  
+   -- Incomplete TCP handshake  
+
+
+#Part 2 – Firewall Defense (iptables)
+
+Block Port 80
+
+-- Command:
+
+   sudo iptables -A INPUT -p tcp --dport 80 -j DROP
+
+Verify Rules
+
+-- Command:
+
+   sudo iptables -L
+
+Test After Blocking
+
+-- Run:
+
+   nmap <target-ip>
+
+-- Result:
+   -- Port 80 becomes filtered/closed  
+
+Remove Rules (Cleanup)
+
+-- Command:
+
+   sudo iptables -F
+
+Key Concepts Learned
+
+-- SYN Flood:
+   -- Overloads server with incomplete connections  
+
+-- Firewall:
+   -- Controls incoming/outgoing traffic  
+
+-- Packet Filtering:
+   -- Blocking malicious traffic  
+
+Security Insights
+
+-- DoS attacks can disrupt services  
+-- Firewalls help mitigate attacks  
+-- Monitoring traffic is essential  
