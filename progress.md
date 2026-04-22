@@ -648,3 +648,80 @@ Security Insights
 -- DoS attacks can disrupt services  
 -- Firewalls help mitigate attacks  
 -- Monitoring traffic is essential  
+
+# Day 22 - Log Analysis & Monitoring
+
+-- Performed log analysis to monitor system activity and detect suspicious behavior  
+
+Tools Used
+
+-- Linux system logs  
+-- Terminal commands  
+
+What is Log Analysis?
+
+-- Process of examining system logs to:
+   -- Detect attacks  
+   -- Monitor activity  
+   -- Identify anomalies  
+
+Step 1 – View System Logs
+
+-- Command:
+
+   sudo cat /var/log/syslog
+
+-- Purpose:
+   -- View system-wide activity logs  
+
+Step 2 – Monitor Logs in Real-Time
+
+-- Command:
+
+   sudo tail -f /var/log/syslog
+
+-- Purpose:
+   -- Live monitoring of system events  
+
+Step 3 – Check Authentication Logs
+
+-- Command:
+
+   sudo cat /var/log/auth.log
+
+-- Purpose:
+   -- View login attempts  
+   -- Detect unauthorized access  
+
+Step 4 – Filter Suspicious Activity
+
+-- Failed login attempts:
+
+   grep "Failed password" /var/log/auth.log
+
+-- Successful logins:
+
+   grep "Accepted password" /var/log/auth.log
+
+Step 5 – Analyze Attack Traces
+
+-- During SYN flood or scans:
+   -- Look for repeated connection attempts  
+   -- Unusual IP activity  
+
+Key Concepts Learned
+
+-- Logs:
+   -- Record of system events  
+
+-- Monitoring:
+   -- Continuous observation  
+
+-- Anomaly Detection:
+   -- Identifying unusual behavior  
+
+Security Insights
+
+-- Logs help trace attacks  
+-- Failed logins may indicate brute-force attempts  
+-- Continuous monitoring improves security  
