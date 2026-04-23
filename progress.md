@@ -725,3 +725,158 @@ Security Insights
 -- Logs help trace attacks  
 -- Failed logins may indicate brute-force attempts  
 -- Continuous monitoring improves security  
+
+# Day 23 - Report Writing & Documentation
+
+-- Created a comprehensive cybersecurity report covering all activities performed during Task 2  
+
+1. Introduction
+
+This report documents the practical implementation of network security concepts including reconnaissance, scanning, enumeration, vulnerability assessment, packet analysis, attack simulation, and defensive mechanisms.
+
+The objective of this task was to simulate real-world cybersecurity operations in a controlled lab environment using Kali Linux as the attacker system and Metasploitable2 as the target system.
+
+2. Objectives
+
+-- Perform network reconnaissance to identify active hosts  
+-- Conduct port scanning and service detection  
+-- Identify vulnerabilities in target system  
+-- Analyze network traffic and packet data  
+-- Simulate attack scenarios  
+-- Implement basic defensive mechanisms  
+-- Document findings and provide recommendations  
+
+3. Lab Setup
+
+-- Attacker Machine: Kali Linux  
+-- Target Machine: Metasploitable2  
+-- Network Type: Host-Only Network (isolated environment)  
+
+-- Verified connectivity using:
+   -- ping  
+   -- ifconfig  
+
+ 4. Methodology
+
+4.1 Reconnaissance
+-- Identified active hosts using:
+   nmap -sn 192.168.x.0/24  
+
+-- Purpose:
+   -- Discover devices in network  
+
+
+4.2 Port Scanning
+
+-- Performed scanning using:
+   nmap -sS <target-ip>  
+
+-- Identified:
+   -- Open ports  
+   -- Running services  
+
+4.3 Service Enumeration
+
+-- Used:
+   nmap -sV <target-ip>  
+
+-- Extracted:
+   -- Service names  
+   -- Version details  
+
+4.4 Vulnerability Scanning
+
+-- Used:
+   nmap --script vuln <target-ip>  
+   nikto -h http://<target-ip>  
+
+-- Identified:
+   -- Known vulnerabilities  
+   -- Misconfigurations  
+
+4.5 Packet Analysis
+
+-- Captured traffic using Wireshark  
+
+-- Applied filters:
+   -- http  
+   -- dns  
+   -- tcp  
+
+-- Observed:
+   -- Requests and responses  
+   -- Unencrypted data  
+
+4.6 Credential Sniffing
+
+-- Captured FTP login using:
+   ftp <target-ip>  
+
+-- Observed:
+   -- Username and password in plaintext  
+
+4.7 Attack Simulation
+
+-- Simulated SYN flood using:
+   sudo hping3 -S --flood -p 80 <target-ip>  
+
+-- Observed:
+   -- High volume of SYN packets  
+
+4.8 Defense Mechanism
+
+-- Implemented firewall rule:
+   sudo iptables -A INPUT -p tcp --dport 80 -j DROP  
+
+-- Verified using:
+   nmap <target-ip>  
+
+4.9 Log Analysis
+
+-- Monitored logs:
+   /var/log/syslog  
+   /var/log/auth.log  
+
+-- Identified:
+   -- Failed login attempts  
+   -- Suspicious activity  
+
+5. Results & Findings
+
+-- Multiple open ports detected (21, 22, 80, etc.)  
+-- Outdated services identified  
+-- Vulnerabilities detected via automated scanning  
+-- Sensitive data exposed in unencrypted protocols  
+-- Successful simulation of DoS attack  
+-- Firewall successfully blocked incoming traffic  
+
+6. Security Issues Identified
+
+-- Open ports exposing services  
+-- Weak/unsecured protocols (FTP, HTTP)  
+-- Lack of encryption  
+-- Susceptibility to DoS attacks  
+-- Insufficient access control  
+
+7. Recommendations
+
+-- Use secure protocols (HTTPS, SFTP)  
+-- Disable unnecessary ports/services  
+-- Regular vulnerability scanning  
+-- Implement firewall rules  
+-- Monitor logs continuously  
+-- Keep systems updated  
+
+8. Learning Outcomes
+
+-- Understood complete cybersecurity workflow  
+-- Gained hands-on experience with real tools  
+-- Learned attack and defense techniques  
+-- Improved analytical and problem-solving skills  
+
+9. Conclusion
+
+This task provided practical exposure to real-world cybersecurity operations.  
+It demonstrated how attackers identify vulnerabilities and how defenders mitigate risks using monitoring and security controls.
+
+-- All activities were performed in a controlled and ethical lab environment  
